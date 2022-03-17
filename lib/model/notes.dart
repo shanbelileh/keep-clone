@@ -33,30 +33,30 @@ List<Note> notes = [
   Note(
       title: "",
       content: text6,
-      color: Colors.pink[100],
+      color: Colors.pink[50],
       imageUrl: "https://data2.unhcr.org/images/documents/big_aa2c81585e808b644ef70587136c23601d33a2e9.jpg",
       tags: ["document"]) ,
   Note(
       title: "Shopping",
       content: text1,
-      color: Colors.orange[100],
+      color: Colors.orange[50],
       tags: ["grocery", "market"]),
   Note(
       title: "Diary",
       content: text2,
-      color: Colors.blue[100],
+      color: Colors.blue[50],
       tags: ["personal"]),
-  Note(title: "", content: text3, color: Colors.green[100], tags: []),
-  Note(title: "Session", content: text4, color: Colors.red[100], tags: []),
+  Note(title: "", content: text3, color: Colors.green[50], tags: []),
+  Note(title: "Session", content: text4, color: Colors.red[50], tags: []),
   Note(
       title: "Fact",
       content: text5,
-      color: Colors.cyan[100],
+      color: Colors.cyan[50],
       tags: ["programming", "Dart", "Work"]),
   Note(
       title: "",
       content: "my poppy",
-      color: Colors.deepOrange[100],
+      color: Colors.deepOrange[50],
       imageUrl:
           "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_4x3.jpg",
       tags: ["Home", "Pet"]),

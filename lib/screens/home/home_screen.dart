@@ -48,8 +48,8 @@ class HomeScreen extends StatelessWidget {
             crossAxisCount:
                 Get.find<HomeController>().gridDisplay.isTrue ? 2 : 1,
             physics: const BouncingScrollPhysics(),
-            mainAxisSpacing: 15.0,
-            crossAxisSpacing: 10.0,
+            mainAxisSpacing: 8.0,
+            crossAxisSpacing: 8.0,
             itemCount: controller.myNotes.length + 1,
             itemBuilder: (context, index) {
               if (index == controller.myNotes.length) {
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
   Container _buildSearch(BuildContext context) {
     return Container(
       clipBehavior: Clip.none,
-      height: getProportionateScreenHeight(66),
+      height: getProportionateScreenHeight(60),
       margin: EdgeInsets.only(
           left: getProportionateScreenWidth(20),
           right: getProportionateScreenWidth(20)),
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
             );
           }),
           CircleAvatar(
-            radius: getProportionateScreenHeight(25),
+            radius: getProportionateScreenHeight(20),
             backgroundColor: Colors.orange[100],
             child: Icon(
               Icons.tag_faces,

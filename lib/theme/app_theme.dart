@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 /// project : keep-clone
 class AppTheme {
   static ThemeData get basic => ThemeData(
+      splashFactory: InkRipple.splashFactory,
       brightness: Brightness.light,
       primarySwatch: Colors.deepOrange,
       fontFamily: "Sans",
