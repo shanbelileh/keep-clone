@@ -34,7 +34,7 @@ List<Note> notes = [
       title: "",
       content: text6,
       color: Colors.pink[50],
-      imageUrl: "https://data2.unhcr.org/images/documents/big_aa2c81585e808b644ef70587136c23601d33a2e9.jpg",
+      imageUrl: "https://qph.cf2.quoracdn.net/main-qimg-648c32ee41b83cf57691cfd7243eec04-lq",
       tags: ["document"]) ,
   Note(
       title: "Shopping",

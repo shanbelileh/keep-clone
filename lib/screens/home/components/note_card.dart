@@ -17,6 +17,7 @@ class NoteCard extends StatelessWidget {
     }
 
     return Container(
+      margin: const EdgeInsets.all(2),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
           color: note.color,
@@ -38,7 +39,7 @@ class NoteCard extends StatelessWidget {
                       left: 16, right: 16, top: 16, bottom: 16),
                   child: Text(
                     note.title,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               if (note.imageUrl?.isNotEmpty ?? false) _buildImage(),
@@ -52,7 +53,7 @@ class NoteCard extends StatelessWidget {
                   content,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText2!
+                      .bodyMedium!
                       .copyWith(fontSize: _sizeOf(content)),
                 ),
               ),
@@ -91,7 +92,7 @@ class NoteCard extends StatelessWidget {
     return FittedBox(
       child: Container(
         height: 32,
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
             color: _getComplementColor(color).withAlpha(20),
             borderRadius: BorderRadius.circular(8),

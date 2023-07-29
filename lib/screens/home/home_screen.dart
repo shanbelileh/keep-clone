@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         floatingActionButton: _buildNotchButton(),
         drawer: _buildDrawer(context),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        bottomNavigationBar: _buildBottomNav(),
+        bottomNavigationBar: _buildBottomNav(context),
         body: Builder(
           builder: (context) => Column(
             children: [
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
       return Expanded(
         child: Padding(
           padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-          child: StaggeredGridView.countBuilder(
+          child: MasonryGridView.count(
             crossAxisCount:
                 Get.find<HomeController>().gridDisplay.isTrue ? 2 : 1,
             physics: const BouncingScrollPhysics(),
@@ -60,10 +60,10 @@ class HomeScreen extends StatelessWidget {
               }
               return NoteCard(controller.myNotes[index]);
             },
-            staggeredTileBuilder: (index) {
+            /*staggeredTileBuilder: (index) {
               return StaggeredTile.fit(
                   index == controller.myNotes.length ? 2 : 1);
-            },
+            },*/
           ),
         ),
       );
@@ -144,43 +144,44 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBottomNav() {
+  Widget _buildBottomNav(BuildContext context) {
     return BottomAppBar(
       color: Colors.grey[100],
       elevation: 2,
       shape: RectangularNotch(),
       notchMargin: notchMargin,
-      child: Row(
-        //children inside bottom appbar
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.check_box_outlined),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.brush_outlined),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.keyboard_voice_outlined,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Row(
+          //children inside bottom appbar
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.check_box_outlined),
+              onPressed: () {},
             ),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(
-              Icons.image_outlined,
+            IconButton(
+              icon: const Icon(Icons.brush_outlined),
+              onPressed: () {},
             ),
-            onPressed: () {},
-          ),
-          const Expanded(
-            child: FractionallySizedBox(
-              widthFactor: 0.4,
+            IconButton(
+              icon: const Icon(
+                Icons.keyboard_voice_outlined,
+              ),
+              onPressed: () {},
             ),
-          )
-        ],
+            IconButton(
+              icon: const Icon(
+                Icons.image_outlined,
+              ),
+              onPressed: () {},
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width*0.4,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -216,7 +217,7 @@ class HomeScreen extends StatelessWidget {
                 "Keep",
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1!
+                    .titleMedium!
                     .copyWith(color: Colors.grey[700], fontSize: 20),
               ),
             ],
@@ -225,7 +226,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.lightbulb_outlined),
             title: Text(
               "Notes",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -233,18 +234,18 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.notifications_none_rounded),
             title: Text(
               "Reminders",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
           const Divider(
             height: 2,
           ),
-          Padding(
-            padding: const EdgeInsets.all(10),
+          const Padding(
+            padding: EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text("Labels"),
                 Text("Edit"),
               ],
@@ -254,7 +255,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.label_outlined),
             title: Text(
               "document",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -262,7 +263,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.label_outlined),
             title: Text(
               "grocery",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -270,7 +271,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.label_outlined),
             title: Text(
               "market",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -278,7 +279,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.label_outlined),
             title: Text(
               "personal",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -286,7 +287,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.label_outlined),
             title: Text(
               "programming",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -294,7 +295,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.add),
             title: Text(
               "Create new label",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -305,7 +306,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.archive_outlined),
             title: Text(
               "Archive",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -313,7 +314,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.delete_outlined),
             title: Text(
               "Trash",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -321,7 +322,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.settings_outlined),
             title: Text(
               "Settings",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           ),
@@ -329,7 +330,7 @@ class HomeScreen extends StatelessWidget {
             leading: const Icon(Icons.help_outline),
             title: Text(
               "Help & feedback",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             onTap: () => closeDrawer(context),
           )

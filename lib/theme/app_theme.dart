@@ -9,6 +9,7 @@ class AppTheme {
       splashFactory: InkRipple.splashFactory,
       brightness: Brightness.light,
       primarySwatch: Colors.deepOrange,
+      // useMaterial3: true,
       fontFamily: "Sans",
       scaffoldBackgroundColor: Colors.grey[100],
       appBarTheme: const AppBarTheme(
