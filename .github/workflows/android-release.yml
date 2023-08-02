@@ -42,7 +42,7 @@ jobs:
         run: flutter build apk
 
 
-      - name: Upload bundle Build Files
+      - name: Upload apk Build Files
         if: github.event.inputs.build_type == 'apk'
         uses: actions/upload-artifact@v3
         with:
